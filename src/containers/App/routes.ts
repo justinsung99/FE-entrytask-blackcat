@@ -1,10 +1,14 @@
 import React from 'react';
 const NotFoundPage = React.lazy(() => import('containers/NotFoundPage'));
+const LoginView = React.lazy(() => import('containers/LoginView'));
 
 const routes: Record<string, any | boolean | string>[] = [
     {
+        comp: LoginView,
+        path: '/login'
+    },
+    {
         comp: NotFoundPage,
-        protected: true,
     },
 ];
 
