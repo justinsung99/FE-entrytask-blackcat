@@ -3,6 +3,7 @@ import React from 'react';
 import './loginViewStyle.scss';
 import {ReactComponent as Logo} from 'assets/img/logo-cat.svg';
 import {ReactComponent as UsernameIcon} from 'assets/img/user.svg';
+import {ReactComponent as PasswordIcon} from 'assets/img/password.svg';
 
 const LoginView: React.FC = () => {
   return (
@@ -22,7 +23,7 @@ const LoginView: React.FC = () => {
           <input type="text" name="username" placeholder="Username"/>
         </div>
         <div className="password-input-wrap">
-        <UsernameIcon />
+        <PasswordIcon />
           <input type="password" name="password" placeholder="Password"/>
         </div>
       </div>

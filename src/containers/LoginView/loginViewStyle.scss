@@ -41,8 +41,12 @@
     display: flex;
     flex-direction: column;
 
+    ::placeholder {
+      color: var(--violet);
+    }
+
     .username-input-wrap {
-      margin: 0 auto;
+      margin: 0.5rem auto;
       // padding: 1rem;
       width: 75%;
       display: flex;
@@ -61,12 +65,17 @@
         margin-right: 0.5rem;
         background: none;
         border: none;
-        color: var(--violet);
+        color: var(--dark-purple);
+      }
+
+      input:focus {
+        outline:none;
+        fill:none;
       }
     }
 
     .password-input-wrap {
-      margin: 0 auto;
+      margin: 0.5rem auto;
       // padding: 1rem;
       width: 75%;
       display: flex;
@@ -85,7 +94,12 @@
         margin-right: 0.5rem;
         background: none;
         border: none;
-        color: var(--violet);
+        color: var(--dark-purple);
+      }
+      
+      input:focus {
+        outline:none;
+        fill:none;
       }
     }
   }
