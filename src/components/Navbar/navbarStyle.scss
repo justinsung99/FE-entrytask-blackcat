@@ -1,0 +1,32 @@
+.navbar-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  background: var(--purple);
+
+  svg {
+    margin: 0.5rem 1rem;
+    width: 20%;
+    fill: var(--dark-purple);
+  }
+
+  .search-btn {
+  }
+
+  .logo-btn {
+    text-align: center;
+    svg {
+      fill: var(--lime);
+    }
+  }
+
+  .profile-btn {
+    text-align: right;
+    svg {
+      // background: white;
+      border-radius: 50%;
+    }
+  }
+}
