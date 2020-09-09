@@ -5,12 +5,13 @@ const ListView = React.lazy(() => import('containers/ListView'));
 
 const routes: Record<string, any | boolean | string>[] = [
   {
-    comp: ListView,
-    path: '/',
-  },
-  {
     comp: LoginView,
     path: '/login',
+  },
+  {
+    comp: ListView,
+    path: '/',
+    protected: true,
   },
   {
     comp: NotFoundPage,

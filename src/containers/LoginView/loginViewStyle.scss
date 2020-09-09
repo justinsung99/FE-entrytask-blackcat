@@ -1,10 +1,15 @@
+.warning {
+  color: red;
+  font-size: 16px;
+}
 
 .login-view-wrap {
   display: flex;
   flex-direction: column;
   text-align: center;
   height: 100vh;
-  background: linear-gradient(0deg,rgba(133, 96, 169, 0.7), rgba(133, 96, 169, 0.7)),url('../../assets/img/Street-Dance-01.jpg');
+  background: linear-gradient(0deg, rgba(133, 96, 169, 0.7), rgba(133, 96, 169, 0.7)),
+    url('../../assets/img/Street-Dance-01.jpg');
   background-size: cover;
   justify-content: space-between;
 
@@ -47,7 +52,6 @@
 
     .username-input-wrap {
       margin: 0.5rem auto;
-      // padding: 1rem;
       width: 75%;
       display: flex;
       flex-direction: row;
@@ -69,14 +73,13 @@
       }
 
       input:focus {
-        outline:none;
-        fill:none;
+        outline: none;
+        fill: none;
       }
     }
 
     .password-input-wrap {
       margin: 0.5rem auto;
-      // padding: 1rem;
       width: 75%;
       display: flex;
       flex-direction: row;
@@ -96,20 +99,29 @@
         border: none;
         color: var(--dark-purple);
       }
-      
+
       input:focus {
-        outline:none;
-        fill:none;
+        outline: none;
+        fill: none;
       }
+    }
+
+    .active {
+      background: rgba(211, 193, 229, 0.2);
     }
   }
 
   .sign-in-section {
-    text-align: center;
-    width:100%;
-    padding: 1.5rem 0;
-    font-weight: bold;
-    background: var(--lime);
-    color: var(--dark-purple);
+    .sign-in-btn {
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      width: 100%;
+      padding: 1.5rem 0;
+      font-weight: bold;
+      background: var(--lime);
+      color: var(--dark-purple);
+      -webkit-appearance: none;
+    }
   }
 }
