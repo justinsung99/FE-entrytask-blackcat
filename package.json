@@ -20,8 +20,10 @@
     "eslint-plugin-prettier": "^3.1.4",
     "history": "^5.0.0",
     "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.1.1",
+    "pretty-quick": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-loader-spinner": "^3.1.14",
@@ -38,19 +40,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "pretty-quick --staged && lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint"
     }
   },
   "lint-staged": {
-    "*.{tsx,ts}": "npm run lint:eslint",
-    "*.{tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{tsx,ts,js}": "eslint --cache --fix"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,140 @@
+.post-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 0 1rem;
+
+  .post-top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .profile-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .profile-img-wrap {
+        // width: 20%;
+
+        img {
+          clip-path: circle(15px at center);
+          width: 45px;
+        }
+      }
+      .username {
+        margin-left: 0.5rem;
+        margin: 0;
+        font-size: 12px;
+        color: var(--gray);
+        font-weight: 600;
+      }
+    }
+
+    .channel-container {
+      .channel-name-btn {
+        border: 1px solid var(--purple);
+        border-radius: 10px;
+        p {
+          color: var(--purple);
+          font-size: 12px;
+          margin: 0 0.5rem;
+        }
+      }
+    }
+  }
+
+  .title-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .title-text {
+      display: flex;
+      flex-direction: column;
+      .post-title {
+        margin: 0.5rem 0;
+        color: var(--dark-purple);
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+
+    .post-image-wrap {
+      width: 40%;
+      height: 100%;
+      text-align: center;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .time-date-wrap {
+    color: var(--purple);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    .icon-wrap {
+      display: flex;
+      align-items: center;
+      margin-right: 0.3rem;
+
+      svg {
+        width: 15px;
+        fill: var(--purple);
+      }
+    }
+  }
+
+  .content {
+    margin: 1rem 0;
+    color: var(--gray);
+  }
+
+  .reaction-row {
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--dark-purple);
+    font-size: 14px;
+
+    .going-container {
+      margin-right: 2rem;
+      display: flex;
+      flex-direction: row;
+      .icon-wrap {
+        display: flex;
+        align-items: center;
+        margin-right: 0.3rem;
+
+        svg {
+          width: 15px;
+          fill: var(--lime);
+        }
+      }
+    }
+    .like-container {
+      margin-right: 2rem;
+      display: flex;
+      flex-direction: row;
+      color: var(--dark-purple);
+      .icon-wrap {
+        display: flex;
+        align-items: center;
+        margin-right: 0.3rem;
+
+        svg {
+          width: 15px;
+          fill: var(--red);
+        }
+      }
+    }
+  }
+
+  .post-bottom-line {
+    margin-top: 1rem;
+    width: 100%;
+    border: 1px solid var(--ash);
+  }
+}
