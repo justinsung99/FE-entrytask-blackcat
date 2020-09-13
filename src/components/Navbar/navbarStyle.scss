@@ -6,18 +6,19 @@
   align-content: center;
   background: var(--purple);
 
-  svg {
-    margin: 0.5rem 1rem;
-    width: 20%;
-    fill: var(--dark-purple);
-  }
-
   .search-btn {
+    svg {
+      margin: 0.5rem 1rem;
+      width: 20%;
+      fill: var(--dark-purple);
+    }
   }
 
   .logo-btn {
     text-align: center;
     svg {
+      margin: 0.5rem 1rem;
+      width: 20%;
       fill: var(--lime);
     }
   }
@@ -25,6 +26,10 @@
   .profile-btn {
     text-align: right;
     svg {
+      margin: 0.5rem 1rem;
+      width: 20%;
+      fill: var(--dark-purple);
+
       // background: white;
       border-radius: 50%;
     }

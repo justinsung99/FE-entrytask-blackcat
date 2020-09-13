@@ -39,9 +39,7 @@ const ListView: React.FC<ListViewProps> = (props) => {
   }, [props.fetchPostListResponse]);
 
   const renderPost: any = [];
-  console.log(postList);
   if (postList.length > 1) {
-    console.log(postList);
     postList.forEach((post: any, index: number) => {
       renderPost.push(
         <div className="item-wrapper" key={`${index};${post.title};${post.username}`}>
