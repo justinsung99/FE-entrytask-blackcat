@@ -6,7 +6,7 @@ import { ReactComponent as TimeIcon } from 'assets/img/time.svg';
 import { ReactComponent as CheckIcon } from 'assets/img/check.svg';
 import { ReactComponent as LikeIcon } from 'assets/img/like.svg';
 
-type PostProps = {
+export type PostProps = {
   username: string;
   channelName: string;
   avatar: string;
@@ -24,7 +24,7 @@ const Post: React.FC<PostProps> = (props) => {
 
   function formatParagraph(text: string) {
     const TEXT_LIMIT = 200;
-    const tail = text.length < 200 ? '' : '...';
+    const tail = text.length < TEXT_LIMIT ? '' : '...';
 
     return text.substring(0, 201) + tail;
   }

@@ -5,7 +5,7 @@ import { FETCH_POST_LIST, FETCH_POST_LIST_SUCCESS, FETCH_POST_LIST_FAILED } from
 const initialState = fromJS({
   isLoading: false,
   isFetchPostListSuccess: null,
-  fetchPostListResponse: null,
+  fetchPostListResponse: [{}],
 });
 
 export default function ListViewReducer(state = initialState, action: any) {

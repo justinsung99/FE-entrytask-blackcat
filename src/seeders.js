@@ -46,9 +46,7 @@ export function generatePostList() {
     });
   }
 
-  console.log(postList);
-
-  return { data: postList };
+  return postList;
 }
 
 function tsToDate(epoch) {

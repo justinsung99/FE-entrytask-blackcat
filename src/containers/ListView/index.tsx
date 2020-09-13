@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import './listViewStyle.module.scss';
 import Navbar from 'components/Navbar';
 import Post from 'components/Post';
+import PostProps from 'components/Post';
 import Spinner from 'components/Spinner';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import { fetchPostList } from './actions';
 import { connect } from 'react-redux';
@@ -11,27 +13,36 @@ import { push } from 'connected-react-router';
 
 type ListViewProps = {
   fetchPostList: () => any;
-  fetchPostListResponse: any;
+  fetchPostListResponse: Object[];
   isLoading: boolean;
   isFetchPostListSuccess: boolean;
 };
 
 const ListView: React.FC<ListViewProps> = (props) => {
-  const [postList, setPostList] = useState({ data: [] });
+  const [postList, setPostList] = useState(props.fetchPostListResponse);
 
   useEffect(() => {
     props.fetchPostList();
   }, []);
 
   useEffect(() => {
-    setPostList(props.fetchPostListResponse);
+    const tempList: Object[] = [];
+    if (postList.length > 1) {
+      postList.forEach((post) => {
+        tempList.push(post);
+      });
+    }
+    props.fetchPostListResponse.forEach((post) => {
+      tempList.push(post);
+    });
+    setPostList(tempList);
   }, [props.fetchPostListResponse]);
 
   const renderPost: any = [];
   console.log(postList);
-  if (postList) {
-    console.log(postList.data);
-    postList.data.forEach((post: any, index) => {
+  if (postList.length > 1) {
+    console.log(postList);
+    postList.forEach((post: any, index: number) => {
       renderPost.push(
         <div className="item-wrapper" key={`${index};${post.title};${post.username}`}>
           <Post
@@ -53,7 +64,11 @@ const ListView: React.FC<ListViewProps> = (props) => {
   return (
     <>
       <Navbar />
-      <div className="list-view-wrap">{props.isLoading ? <Spinner /> : renderPost}</div>
+      <div className="list-view-wrap">
+        <InfiniteScroll initialLoad={false} loadMore={props.fetchPostList} hasMore={true} loader={<Spinner />}>
+          {renderPost}
+        </InfiniteScroll>
+      </div>
     </>
   );
 };
