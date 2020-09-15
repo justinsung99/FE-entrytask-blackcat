@@ -3,19 +3,20 @@ import React, { useEffect, useState } from 'react';
 import './listViewStyle.module.scss';
 import Navbar from 'components/Navbar';
 import Post from 'components/Post';
-import PostProps from 'components/Post';
 import Spinner from 'components/Spinner';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import { fetchPostList } from './actions';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
+import { withRouter } from 'react-router';
 
 type ListViewProps = {
   fetchPostList: () => any;
-  fetchPostListResponse: Object[];
+  fetchPostListResponse: Record<string, unknown>[];
   isLoading: boolean;
   isFetchPostListSuccess: boolean;
+  history: any;
 };
 
 const ListView: React.FC<ListViewProps> = (props) => {
@@ -26,7 +27,7 @@ const ListView: React.FC<ListViewProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    const tempList: Object[] = [];
+    const tempList: Record<string, unknown>[] = [];
     if (postList.length > 1) {
       postList.forEach((post) => {
         tempList.push(post);
@@ -44,6 +45,7 @@ const ListView: React.FC<ListViewProps> = (props) => {
       renderPost.push(
         <div className="item-wrapper" key={`${index};${post.title};${post.username}`}>
           <Post
+            id={post.id}
             username={post.user.username}
             channelName={post.user.channel_name}
             avatar={post.user.avatar}
@@ -54,6 +56,7 @@ const ListView: React.FC<ListViewProps> = (props) => {
             description={post.description}
             likeCount={post.like_count}
             goingCount={post.going_count}
+            onClick={() => props.history.push(`/details/${post.id}`)}
           />
         </div>,
       );
@@ -61,7 +64,7 @@ const ListView: React.FC<ListViewProps> = (props) => {
   }
   return (
     <>
-      <Navbar />
+      <Navbar isRoot={true} />
       <div className="list-view-wrap">
         <InfiniteScroll initialLoad={false} loadMore={props.fetchPostList} hasMore={true} loader={<Spinner />}>
           {renderPost}
@@ -87,4 +90,4 @@ function mapDispatchToProps(dispatch: any) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListView);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListView));

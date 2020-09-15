@@ -1,0 +1,11 @@
+.channel-container {
+  .channel-name-btn {
+    border: 1px solid var(--purple);
+    border-radius: 10px;
+    .channel-text {
+      color: var(--purple);
+      font-size: 12px;
+      margin: 0 0.5rem;
+    }
+  }
+}

@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './postStyle.scss';
 import ProfilePlaceholder from 'assets/img/dev-photo-placeholder.jpg';
 import { ReactComponent as TimeIcon } from 'assets/img/time.svg';
 import { ReactComponent as CheckIcon } from 'assets/img/check.svg';
 import { ReactComponent as LikeIcon } from 'assets/img/like.svg';
+import ChannelBox from 'components/ChannelBox';
 
 export type PostProps = {
+  id: number;
   username: string;
   channelName: string;
   avatar: string;
@@ -17,6 +19,7 @@ export type PostProps = {
   description: string;
   likeCount: number;
   goingCount: number;
+  onClick: () => void;
 };
 
 const Post: React.FC<PostProps> = (props) => {
@@ -37,16 +40,14 @@ const Post: React.FC<PostProps> = (props) => {
           </div>
           <p className="username">{props.username}</p>
         </div>
-        <div className="channel-container">
-          <div className="channel-name-btn">
-            <p>{props.channelName}</p>
-          </div>
-        </div>
+        <ChannelBox channelName={props.channelName} />
       </div>
 
       <div className="title-wrap">
         <div className="title-text">
-          <p className="post-title">{props.title}</p>
+          <p className="post-title" onClick={() => props.onClick()}>
+            {props.title}
+          </p>
           <div className="time-date-wrap">
             <div className="icon-wrap">
               <TimeIcon />

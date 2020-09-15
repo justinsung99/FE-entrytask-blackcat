@@ -1,4 +1,3 @@
-import Faker from 'faker';
 import faker from 'faker';
 
 const seed = 2402;
