@@ -4,7 +4,7 @@ import './navbarStyle.scss';
 
 import { ReactComponent as Logo } from 'assets/img/logo-cat.svg';
 import { ReactComponent as SearchIcon } from 'assets/img/search.svg';
-import { ReactComponent as Placeholder } from 'assets/img/people-outline.svg';
+import { ReactComponent as Placeholder } from 'assets/img/user.svg';
 import { ReactComponent as Home } from 'assets/img/home.svg';
 
 import SideBar from 'components/SideBar';
